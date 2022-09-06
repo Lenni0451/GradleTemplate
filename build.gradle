@@ -6,6 +6,10 @@ plugins {
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 compileJava.options.encoding = "UTF-8"
 
+archivesBaseName = project.maven_name
+group = project.maven_group
+version = project.maven_version
+
 configurations {
     include
 
