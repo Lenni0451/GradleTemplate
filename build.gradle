@@ -1,0 +1,82 @@
+plugins {
+    id "java"
+    id "maven-publish"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+compileJava.options.encoding = "UTF-8"
+
+configurations {
+    include
+
+    implementation.extendsFrom include
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "lenni0451"
+        url = "https://maven.lenni0451.net/releases"
+    }
+}
+
+dependencies {
+    //if (new File(projectDir, "libs").exists()) {
+    //    include fileTree(include: ["*.jar"], dir: "libs")
+    //}
+
+    //include "net.lenni0451:Reflect:1.0.0"
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+javadoc {
+    failOnError = false
+}
+
+jar {
+    dependsOn configurations.include
+    from {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        configurations.include.collect {
+            zipTree(it)
+        }
+    } {
+        exclude "META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA"
+    }
+
+    manifest {
+        attributes(
+                "Main-Class": "net.lenni0451.gradletemplate.Main",
+                "Multi-Release": "true"
+        )
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "reposilite"
+            url = "https://maven.lenni0451.net/releases"
+            credentials {
+                username = "${System.env.REPOSILITE_USERNAME}"
+                password = "${System.env.REPOSILITE_PASSWORD}"
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            groupId = project.maven_name
+            artifactId = project.maven_group
+            version = project.maven_version
+
+            from components.java
+        }
+    }
+}
