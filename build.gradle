@@ -23,6 +23,10 @@ repositories {
         name = "lenni0451 releases"
         url = "https://maven.lenni0451.net/releases"
     }
+    //maven {
+    //    name = "Sonatype Snapshots"
+    //    url "https://oss.sonatype.org/content/repositories/snapshots/"
+    //}
 
     //ivy { //include "waterfall:1.19:504@jar"
     //    url "https://papermc.io/api/v2/projects"
@@ -33,11 +37,6 @@ repositories {
     //        artifact()
     //    }
     //}
-
-    //maven {
-    //    name = "Sonatype Snapshots"
-    //    url "https://oss.sonatype.org/content/repositories/snapshots/"
-    //}
 }
 
 dependencies {
@@ -46,13 +45,6 @@ dependencies {
     //}
 
     //include "net.lenni0451:Reflect:1.0.0"
-
-    //["manifold-rt", "manifold-ext-rt", "manifold-tuple-rt", "manifold-collections"].each {
-    //    libs "systems.manifold:$it:2022.1.21"
-    //}
-    //["manifold", "manifold-ext", "manifold-tuple", "manifold-collections"].each {
-    //    annotationProcessor "systems.manifold:$it:2022.1.21"
-    //}
 }
 
 java {
@@ -116,8 +108,4 @@ publishing {
 //                "version": project.maven_version + ((project.snapshot == "false") ? "-SNAPSHOT" : "")
 //        )
 //    }
-//}
-
-//tasks.withType(JavaCompile) {
-//    options.compilerArgs += ["-Xplugin:Manifold no-bootstrap"]
 //}
