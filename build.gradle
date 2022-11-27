@@ -79,7 +79,7 @@ publishing {
     repositories {
         maven {
             name = "reposilite"
-            url = ((project.snapshot == "true") ? "https://maven.lenni0451.net/snapshots" : "https://maven.lenni0451.net/releases")
+            url = ((project.snapshot == "false") ? "https://maven.lenni0451.net/releases" : "https://maven.lenni0451.net/snapshots")
             credentials(PasswordCredentials)
             authentication {
                 basic(BasicAuthentication)
@@ -100,12 +100,12 @@ publishing {
 //processResources {
 //    //Config file: "version: ${version}"
 //    inputs.properties(
-//            "version": project.maven_version + ((project.snapshot == "false") ? "-SNAPSHOT" : "")
+//            "version": project.maven_version + ((project.snapshot == "false") ? "" : "-SNAPSHOT")
 //    )
 //    
 //    filesMatching("config") {
 //        expand(
-//                "version": project.maven_version + ((project.snapshot == "false") ? "-SNAPSHOT" : "")
+//                "version": project.maven_version + ((project.snapshot == "false") ? "" : "-SNAPSHOT")
 //        )
 //    }
 //}
