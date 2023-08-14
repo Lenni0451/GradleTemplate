@@ -2,6 +2,7 @@ plugins {
     id "java"
     id "maven-publish"
     id "signing"
+    id "checkstyle"
 }
 
 base {
@@ -161,6 +162,11 @@ publishing {
     }
 }
 
+checkstyle {
+    toolVersion = "9.3" //Latest version for Java 8
+    configFile = rootProject.file("config/checkstyle.xml")
+}
+
 signing {
     setRequired false
     sign configurations.archives
@@ -171,3 +177,4 @@ project.tasks.withType(PublishToMavenRepository).forEach {
     it.dependsOn(project.tasks.withType(Sign))
 }
 build.dependsOn(test)
+build.dependsOn(check)
