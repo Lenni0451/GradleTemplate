@@ -79,7 +79,9 @@
         <!-- Miscellaneous Checks -->
         <module name="ArrayTypeStyle"/>
         <!--<module name="CommentsIndentation"/>-->
-        <module name="Indentation"/>
+        <module name="Indentation">
+            <property name="arrayInitIndent" value="8"/>
+        </module>
         <module name="OuterTypeFilename"/>
         <module name="UpperEll"/>
         <module name="ModifierOrder"/>
@@ -90,24 +92,40 @@
         <module name="InterfaceTypeParameterName">
             <property name="format" value="^[A-Z]+$"/>
         </module>
-        <module name="LambdaParameterName"/>
-        <module name="LocalVariableName"/>
-        <module name="MemberName"/>
-        <module name="MethodName"/>
+        <module name="LambdaParameterName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
         <module name="MethodTypeParameterName">
             <property name="format" value="^[A-Z]+$"/>
         </module>
         <module name="PackageName"/>
-        <module name="ParameterName"/>
-        <module name="PatternVariableName"/>
-        <module name="RecordComponentName"/>
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
+        <module name="PatternVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
+        <module name="RecordComponentName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
         <module name="RecordTypeParameterName">
             <property name="format" value="^[A-Z]+$"/>
         </module>
         <module name="StaticVariableName">
             <property name="format" value="^[a-zA-Z0-9_]+$"/>
         </module>
-        <module name="TypeName"/>
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9_]*$"/>
+        </module>
 
         <!-- Whitespace Checks -->
         <module name="EmptyForInitializerPad"/>
