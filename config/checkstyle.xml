@@ -21,7 +21,7 @@
         <!-- Block Checks -->
         <module name="EmptyBlock"/>
         <module name="EmptyCatchBlock">
-            <property name="exceptionVariableName" value="expect(?>ed)?|ignored?"/>
+            <property name="exceptionVariableName" value="expect(?>ed)?|ignored?|impossible"/>
         </module>
         <module name="LeftCurly">
             <property name="ignoreEnums" value="false"/>
