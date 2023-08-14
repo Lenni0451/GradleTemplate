@@ -55,7 +55,7 @@
         <module name="NoClone"/>
         <module name="NoFinalizer"/>
         <module name="OneStatementPerLine"/>
-        <module name="OverloadMethodsDeclarationOrder"/>
+        <!--<module name="OverloadMethodsDeclarationOrder"/>-->
         <module name="RequireThis">
             <property name="validateOnlyOverlapping" value="false"/>
         </module>
@@ -93,38 +93,38 @@
             <property name="format" value="^[A-Z]+$"/>
         </module>
         <module name="LambdaParameterName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="LocalVariableName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="MemberName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="MethodName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="MethodTypeParameterName">
             <property name="format" value="^[A-Z]+$"/>
         </module>
         <module name="PackageName"/>
         <module name="ParameterName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="PatternVariableName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="RecordComponentName">
-            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[a-z_$][a-zA-Z0-9_$]*$"/>
         </module>
         <module name="RecordTypeParameterName">
             <property name="format" value="^[A-Z]+$"/>
         </module>
         <module name="StaticVariableName">
-            <property name="format" value="^[a-zA-Z0-9_]+$"/>
+            <property name="format" value="^[a-zA-Z0-9_$]+$"/>
         </module>
         <module name="TypeName">
-            <property name="format" value="^[A-Z][a-zA-Z0-9_]*$"/>
+            <property name="format" value="^[A-Z_$][a-zA-Z0-9_$]*$"/>
         </module>
 
         <!-- Whitespace Checks -->
@@ -132,12 +132,16 @@
         <module name="EmptyForIteratorPad"/>
         <module name="EmptyLineSeparator">
             <property name="allowNoEmptyLineBetweenFields" value="true"/>
+            <property name="tokens"
+                      value="IMPORT, STATIC_IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF, RECORD_DEF, COMPACT_CTOR_DEF"/>
         </module>
         <module name="GenericWhitespace"/>
         <module name="MethodParamPad"/>
         <module name="NoLineWrap"/>
         <module name="NoWhitespaceAfter"/>
-        <module name="NoWhitespaceBefore"/>
+        <module name="NoWhitespaceBefore">
+            <property name="allowLineBreaks" value="true"/>
+        </module>
         <module name="NoWhitespaceBeforeCaseDefaultColon"/>
         <module name="OperatorWrap">
             <property name="option" value="eol"/>
