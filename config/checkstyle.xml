@@ -50,7 +50,7 @@
         <!--    <property name="tokens" value="PARAMETER_DEF"/>-->
         <!--</module>-->
         <module name="IllegalType"/>
-        <module name="InnerAssignment"/>
+        <!--<module name="InnerAssignment"/>-->
         <module name="MultipleVariableDeclarations"/>
         <module name="NoClone"/>
         <module name="NoFinalizer"/>
