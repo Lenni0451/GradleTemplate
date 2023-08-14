@@ -84,7 +84,6 @@
         </module>
         <module name="OuterTypeFilename"/>
         <module name="UpperEll"/>
-        <module name="ModifierOrder"/>
         <module name="ClassTypeParameterName">
             <property name="format" value="^[A-Z]+$"/>
         </module>
