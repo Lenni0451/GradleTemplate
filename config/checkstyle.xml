@@ -165,7 +165,7 @@
         </module>
         <module name="NoWhitespaceBeforeCaseDefaultColon"/>
         <module name="OperatorWrap">
-            <property name="option" value="eol"/>
+            <property name="option" value="nl"/>
         </module>
         <module name="ParenPad"/>
         <module name="SeparatorWrap">
