@@ -133,7 +133,7 @@
             <property name="illegalPattern" value="true"/>
         </module>
         <module name="Regexp">
-            <property name="format" value="^\s*\n\s*\n\s*\n"/>
+            <property name="format" value="(\s*\n|\{)\s*\n}\s*\Z"/>
             <property name="message" value="More than two empty lines"/>
             <property name="illegalPattern" value="true"/>
         </module>
