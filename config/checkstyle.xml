@@ -133,14 +133,14 @@
             <property name="illegalPattern" value="true"/>
         </module>
         <module name="Regexp">
-            <property name="format" value="(\s*\n|\{)\s*\n}\s*\Z"/>
+            <property name="format" value="^\s*\n\s*\n\s*\n"/>
             <property name="message" value="More than two empty lines"/>
             <property name="illegalPattern" value="true"/>
         </module>
         <!-- Sadly there is no easy way to enforce a newline after the class header. A regex like this could be a temp solution:
         (^|\s+)(class|interface|enum|@interface|record)\s+.*\{[\t ]*\n[\t ]*(?!\s|;|}|$) -->
         <module name="Regexp">
-            <property name="format" value="\s*\n\s*\n}\s*\Z"/>
+            <property name="format" value="(\s*\n|\{)\s*\n}\s*\Z"/>
             <property name="message" value="Missing empty line before last closing brace"/>
         </module>
 
