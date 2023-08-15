@@ -6,9 +6,9 @@
 <module name="Checker">
     <property name="charset" value="UTF-8"/>
     <property name="fileExtensions" value="java, json, xml, properties"/>
-    <property name="severity" value="warning"/>
+    <property name="severity" value="warning"/> <!-- error -->
     <module name="SuppressionFilter">
-        <property name="file" value="suppressions.xml"/>
+        <property name="file" value="${config_loc}/suppressions.xml"/>
     </module>
 
     <module name="NewlineAtEndOfFile"/>
@@ -164,9 +164,9 @@
             <property name="allowLineBreaks" value="true"/>
         </module>
         <module name="NoWhitespaceBeforeCaseDefaultColon"/>
-        <module name="OperatorWrap">
-            <property name="option" value="nl"/>
-        </module>
+        <!--<module name="OperatorWrap">-->
+        <!--    <property name="option" value="nl"/>-->
+        <!--</module>-->
         <module name="ParenPad"/>
         <module name="SeparatorWrap">
             <property name="option" value="nl"/>

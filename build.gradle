@@ -65,7 +65,7 @@ processResources {
     inputs.properties(
             "version": project.maven_version
     )
-    
+
     filesMatching("config") {
         expand(
                 "version": project.maven_version
@@ -164,8 +164,7 @@ publishing {
 
 checkstyle {
     toolVersion = "9.3" //Latest version for Java 8
-    configFile = rootProject.file("config/checkstyle.xml")
-    //config project.resources.text.fromUri("https://raw.githubusercontent.com/Lenni0451/GradleTemplate/main/config/checkstyle.xml")
+    configFile = rootProject.file("config/checkstyle/checkstyle.xml")
 }
 
 signing {
