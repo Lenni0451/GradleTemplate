@@ -24,8 +24,8 @@ configurations {
 repositories {
     mavenCentral()
     maven {
-        name = "lenni0451 releases"
-        url = "https://maven.lenni0451.net/releases"
+        name = "lenni0451"
+        url = "https://maven.lenni0451.net/everything"
     }
     //maven {
     //    name = "Sonatype Snapshots"
