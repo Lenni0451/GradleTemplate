@@ -10,9 +10,9 @@ base {
     java.toolchain.languageVersion = JavaLanguageVersion.of(8)
     compileJava.options.encoding = compileTestJava.options.encoding = javadoc.options.encoding = "UTF-8"
 
-    archivesName = project.maven_name
-    group = project.maven_group
-    version = project.maven_version
+    archivesName = project.maven_name ?: rootProject.maven_name
+    group = project.maven_group ?: rootProject.maven_group
+    version = project.maven_version ?: rootProject.maven_version
 }
 
 configurations {
