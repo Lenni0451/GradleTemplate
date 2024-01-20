@@ -4,6 +4,7 @@ plugins {
     id "signing"
     id "checkstyle"
     id "net.raphimc.class-token-replacer" version "1.0.0"
+    id "io.freefair.lombok" version "8.4"
 }
 
 base {
@@ -73,6 +74,11 @@ sourceSets {
 java {
     withSourcesJar()
     withJavadocJar()
+}
+
+sourcesJar {
+    from delombok
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 processResources {
