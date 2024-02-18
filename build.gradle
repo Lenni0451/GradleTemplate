@@ -152,20 +152,20 @@ publishing {
     }
     publications {
         maven(MavenPublication) {
-            artifactId = project.maven_name
-            groupId = project.maven_group
-            version = project.maven_version
+            artifactId = project.maven_name ?: rootProject.maven_name
+            groupId = rootProject.maven_group
+            version = rootProject.maven_version
 
             from components.java
 
             pom {
                 name = rootProject.name
-                description = "A template for gradle projects"
-                url = "https://github.com/Lenni0451/GradleTemplate"
+                description = rootProject.maven_description
+                url = "https://github.com/" + rootProject.github_repo
                 licenses {
                     license {
                         name = "MIT License"
-                        url = "https://github.com/Lenni0451/GradleTemplate/blob/main/LICENSE"
+                        url = "https://github.com/" + rootProject.github_repo + "/blob/main/LICENSE"
                     }
                 }
                 developers {
@@ -174,9 +174,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = "scm:git:git://github.com/Lenni0451/GradleTemplate.git"
-                    developerConnection = "scm:git:ssh://github.com/Lenni0451/GradleTemplate.git"
-                    url = "github.com/Lenni0451/GradleTemplate"
+                    connection = "scm:git:git://github.com/" + rootProject.github_repo + ".git"
+                    developerConnection = "scm:git:ssh://github.com/" + rootProject.github_repo + ".git"
+                    url = "github.com/" + rootProject.github_repo
                 }
             }
         }
