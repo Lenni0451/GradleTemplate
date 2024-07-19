@@ -4,7 +4,6 @@ plugins {
     id "signing"
     id "checkstyle"
     id "net.raphimc.class-token-replacer" version "1.1.2"
-    id "io.freefair.lombok" version "8.6"
 }
 
 base {
@@ -54,12 +53,15 @@ dependencies {
         include fileTree(include: ["*.jar"], dir: "libs")
     }
 
-    implementation "com.google.code.findbugs:jsr305:3.0.2"
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+    compileOnly "org.jetbrains:annotations:24.1.0"
+    compileOnly(annotationProcessor("org.projectlombok:lombok:1.18.34"))
     //include "net.lenni0451:Reflect:1.0.0"
 
     testImplementation(platform("org.junit:junit-bom:5.10.3"))
     testImplementation "org.junit.jupiter:junit-jupiter"
-    testRuntimeOnly "org.junit.platform:junit-platform-launcher"    
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+    testCompileOnly(testAnnotationProcessor("org.projectlombok:lombok:1.18.34"))
 }
 
 sourceSets {
@@ -74,11 +76,6 @@ sourceSets {
 java {
     withSourcesJar()
     withJavadocJar()
-}
-
-sourcesJar {
-    from delombok
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 processResources {
