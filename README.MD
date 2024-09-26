@@ -5,11 +5,17 @@ A template project for my gradle based repos.
 To use the maven servers in this template you need to enter your credentials into your `gradle.properties` files.\
 The file can be found in the `.gradle` folder in your home directory (create it if it doesn't exist).
 ```properties
+#Config for a Reposilite maveb server
 reposiliteUsername=user
 reposilitePassword=123456
 
+#Config for Sonatype
 ossrhUsername=user
 ossrhPassword=123456
+
+#Config for the gradle plugin portal
+gradle.publish.key=123456
+gradle.publish.secret=123456
 ```
 
 ## Signing Setup
