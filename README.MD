@@ -1,33 +1,29 @@
-# Gradle Template
-A template project for my gradle based repos.
+# GradleTemplate
+A template project for my gradle based repos.\
+This readme is only a template. You need to replace all mentions of `GradleTemplate` with the name of your project.\
+Check the [wiki](https://github.com/Lenni0451/GradleTemplate/wiki) for more information on how to setup everything required for this template.
 
-## Maven Server Setup
-To use the maven servers in this template you need to enter your credentials into your `gradle.properties` files.\
-The file can be found in the `.gradle` folder in your home directory (create it if it doesn't exist).
-```properties
-#Config for a Reposilite maven server
-reposiliteUsername=user
-reposilitePassword=123456
+## Usage
+To use `GradleTemplate` using [Gradle](#gradle)/[Maven](#maven) you can add it as a dependency to your project.\
+The latest version can be found in the [releases](https://github.com/Lenni0451/GradleTemplate/releases).\
+My libraries are hosted on [Maven Central](https://mvnrepository.com/artifact/net.lenni0451/GradleTempalte) or my own [maven server](https://maven.lenni0451.net/).
 
-#Config for Sonatype
-ossrhUsername=user
-ossrhPassword=123456
+### Gradle
+```groovy
+repositories {
+    mavenCentral()
+}
 
-#Config for the gradle plugin portal
-gradle.publish.key=123456
-gradle.publish.secret=123456
+dependencies {
+    implementation "net.lenni0451:GradleTemplate:x.x.x"
+}
 ```
 
-## Signing Setup
-To sign your artifacts you need to enter your signing credentials into your `gradle.properties` files.\
-The file can be found in the `.gradle` folder in your home directory (create it if it doesn't exist).
-```properties
-signing.keyId=ABC12345
-signing.password=123456
-signing.secretKeyRingFile=secretkey.gpg
-```
-
-The secretkey can be exported using the `gpg` command:
-```bash
-gpg --export-secret-key > secretkey.gpg
+### Maven
+```xml
+<dependency>
+  <groupId>net.lenni0451</groupId>
+  <artifactId>GradleTemplate</artifactId>
+  <version>x.x.x</version>
+</dependency>
 ```
