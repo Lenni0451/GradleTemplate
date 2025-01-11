@@ -119,7 +119,7 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
-    maxParallelForks Runtime.runtime.availableProcessors()
+    maxParallelForks = Runtime.runtime.availableProcessors()
 }
 
 publishing {
