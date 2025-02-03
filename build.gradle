@@ -34,7 +34,7 @@ repositories {
     }
     maven {
         name = "sonatype snapshots"
-        url "https://oss.sonatype.org/content/repositories/snapshots/"
+        url = "https://oss.sonatype.org/content/repositories/snapshots/"
     }
 
     //ivy { //include "waterfall:1.19:504@jar"
