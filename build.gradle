@@ -109,7 +109,8 @@ jar {
     manifest {
         attributes(
                 "Main-Class": "net.lenni0451.gradletemplate.Main",
-                "Multi-Release": "true"
+                "Multi-Release": "true",
+                "Enable-Native-Access": "ALL-UNNAMED"
         )
     }
 }
