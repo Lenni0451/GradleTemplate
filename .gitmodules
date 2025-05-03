@@ -1,0 +1,4 @@
+[submodule "build_config"]
+	path = build_config
+	url = https://github.com/Lenni0451/GradleTemplate
+	branch = gradle_conventions
