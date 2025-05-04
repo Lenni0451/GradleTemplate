@@ -4,7 +4,7 @@ plugins {
     id "base.application"
     id "base.checkstyle"
     id "base.junit"
-    id "base.publishing"
+    id "base.maven_publish"
     id "publishing.maven_central"
     id "publishing.reposilite"
     id "idea.exclude_run_dir"
