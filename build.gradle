@@ -51,14 +51,16 @@ dependencies {
 }
 
 processResources {
+    var projectMavenVersion = project.maven_version
+
     //Config file: "version: ${version}"
     inputs.properties(
-            "version": project.maven_version
+            "version": projectMavenVersion
     )
 
     filesMatching("config.yml") {
         expand(
-                "version": project.maven_version
+                "version": projectMavenVersion
         )
     }
 }
