@@ -9,13 +9,6 @@ plugins {
     id "org.gradle.toolchains.foojay-resolver-convention" version "0.10.0"
 }
 
-if (!new File("build_config", "build.gradle").exists()) {
-    if (!new File(".git").exists()) {
-        throw new GradleException("This project is not a git repository! Please clone the project with --recurse-submodules.")
-    } else {
-        throw new GradleException("Build config not found! Please make sure to clone the project with --recurse-submodules or run 'git submodule update --init'.")
-    }
-}
 includeBuild("build_config")
 
 rootProject.name = "GradleTemplate"

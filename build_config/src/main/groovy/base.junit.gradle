@@ -1,0 +1,18 @@
+configurations {
+    testImplementation.extendsFrom(compileOnly)
+}
+
+dependencies{
+    testImplementation(platform("org.junit:junit-bom:5.12.2"))
+    testImplementation "org.junit.jupiter:junit-jupiter"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    maxParallelForks = Runtime.runtime.availableProcessors()
+}
+build.dependsOn(test)
