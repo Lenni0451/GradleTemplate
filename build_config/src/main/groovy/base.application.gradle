@@ -1,12 +1,11 @@
 plugins {
-    id "application"
     id "configuration.include"
 }
 
 jar {
     manifest {
         attributes(
-                "Main-Class": application.mainClass,
+                "Main-Class": project.mainClass,
                 "Multi-Release": "true",
                 "Enable-Native-Access": "ALL-UNNAMED"
         )
