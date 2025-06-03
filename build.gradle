@@ -5,11 +5,12 @@ plugins {
     id "base.checkstyle"
     id "base.junit"
     id "base.maven_publish"
-    id "publishing.maven_central"
-    id "publishing.reposilite"
+    //id "publishing.maven_central"
+    //id "publishing.reposilite"
+    id "publishing.aggregating_publisher"
     id "idea.exclude_run_dir"
     id "extra.fill_build_constants"
-    id "net.raphimc.class-token-replacer" version "1.1.6"
+    alias libs.plugins.classTokenReplacer
 }
 
 repositories {
@@ -23,7 +24,8 @@ repositories {
     }
     maven {
         name = "sonatype snapshots"
-        url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        url = "https://central.sonatype.com/repository/maven-snapshots/"
+        //Old snapshot repository: https://oss.sonatype.org/content/repositories/snapshots/
     }
 
     //ivy { //include "waterfall:1.19:504@jar"
@@ -42,12 +44,14 @@ dependencies {
     //    include fileTree(include: ["*.jar"], dir: "libs")
     //}
 
-    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
-    compileOnly "org.jetbrains:annotations:26.0.2"
-    compileOnly(annotationProcessor("org.projectlombok:lombok:1.18.38"))
+    compileOnly libs.findbugs
+    compileOnly libs.jetbrainsAnnotations
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
     //include "net.lenni0451:Reflect:1.0.0"
 
-    testCompileOnly(testAnnotationProcessor("org.projectlombok:lombok:1.18.38"))
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
 }
 
 processResources {
