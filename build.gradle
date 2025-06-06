@@ -10,7 +10,9 @@ plugins {
     id "publishing.aggregating_publisher"
     id "idea.exclude_run_dir"
     id "extra.fill_build_constants"
+    id "extra.template_processor"
     alias libs.plugins.classTokenReplacer
+    alias libs.plugins.templateProcessor
 }
 
 repositories {
