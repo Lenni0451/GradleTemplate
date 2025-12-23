@@ -5,8 +5,6 @@ plugins {
     id "base.checkstyle"
     id "base.junit"
     id "base.maven_publish"
-    //id "publishing.maven_central"
-    //id "publishing.reposilite"
     id "publishing.aggregating_publisher"
     id "idea.exclude_run_dir"
     id "extra.fill_build_constants"
@@ -50,6 +48,7 @@ dependencies {
     compileOnly libs.jetbrainsAnnotations
     compileOnly libs.lombok
     annotationProcessor libs.lombok
+
     //include "net.lenni0451:Reflect:1.0.0"
 
     testCompileOnly libs.lombok
