@@ -1,4 +1,8 @@
 version: 2
+registries:
+  maven-central:
+    type: "maven-central"
+    url: "https://repo.maven.apache.org/maven2/"
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
