@@ -10,6 +10,7 @@
     <module name="SuppressionFilter">
         <property name="file" value="${config_loc}/suppressions.xml"/>
     </module>
+    <module name="SuppressWarningsFilter"/>
 
     <module name="NewlineAtEndOfFile"/>
     <module name="FileTabCharacter"/>
@@ -53,7 +54,6 @@
             <!--    <property name="tokens" value="PARAMETER_DEF"/>-->
             <!--</module>-->
             <module name="IllegalType"/>
-            <module name="InnerAssignment"/>
             <module name="MultipleVariableDeclarations"/>
             <module name="NoClone"/>
             <module name="NoFinalizer"/>
@@ -85,7 +85,9 @@
 
             <!-- Miscellaneous Checks -->
             <module name="ArrayTypeStyle"/>
-            <module name="CommentsIndentation"/>
+            <module name="CommentsIndentation">
+                <property name="tokens" value="BLOCK_COMMENT_BEGIN"/>
+            </module>
             <module name="Indentation">
                 <property name="arrayInitIndent" value="8"/>
             </module>
@@ -139,11 +141,6 @@
             <module name="Regexp">
                 <property name="format" value="[\t ]+$"/>
                 <property name="message" value="Left over spaces at end of line"/>
-                <property name="illegalPattern" value="true"/>
-            </module>
-            <module name="Regexp">
-                <property name="format" value="^\s*\n\s*\n\s*\n"/>
-                <property name="message" value="More than two empty lines"/>
                 <property name="illegalPattern" value="true"/>
             </module>
             <!-- Sadly there is no easy way to enforce a newline after the class header. A regex like this could be a temp solution:
