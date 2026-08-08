@@ -2,7 +2,7 @@ configurations {
     testImplementation.extendsFrom(compileOnly)
 }
 
-dependencies{
+dependencies {
     testImplementation(platform(libs.junit.bom))
     testImplementation libs.junit.jupiter
     testRuntimeOnly libs.junit.platform.launcher
@@ -16,4 +16,3 @@ test {
     maxParallelForks = Runtime.runtime.availableProcessors()
     failOnNoDiscoveredTests = false
 }
-build.dependsOn(test)

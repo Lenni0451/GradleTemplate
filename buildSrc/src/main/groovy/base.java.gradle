@@ -1,9 +1,14 @@
-base {
-    java.toolchain.languageVersion = JavaLanguageVersion.of(project.java_version)
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(project.java_version)
+    }
+}
 
-    group = project.maven_group
+group = project.maven_group
+version = project.maven_version
+
+base {
     archivesName = project.maven_name
-    version = project.maven_version
 }
 
 repositories {
@@ -11,15 +16,22 @@ repositories {
 }
 
 jar {
-    var projectName = project.name
-    from("LICENSE") {
-        rename { "${it}_${projectName}" }
+    def projectName = project.name
+    def licenseFile = rootProject.file("LICENSE")
+    if (licenseFile.exists()) {
+        from(licenseFile) {
+            rename { "${it}_${projectName}" }
+        }
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.encoding = "UTF-8"
+    options.encoding = "UTF-8"
 }
 tasks.withType(Javadoc).configureEach {
-    it.options.encoding = "UTF-8"
+    options {
+        encoding = "UTF-8"
+        addBooleanOption("Xdoclint:none", true)
+        quiet()
+    }
 }

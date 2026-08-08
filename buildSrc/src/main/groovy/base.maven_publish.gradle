@@ -35,7 +35,7 @@ publishing {
                 scm {
                     connection = "scm:git:git://github.com/" + project.github_repo + ".git"
                     developerConnection = "scm:git:ssh://github.com/" + project.github_repo + ".git"
-                    url = "github.com/" + project.github_repo
+                    url = "https://github.com/" + project.github_repo
                 }
             }
         }
@@ -48,5 +48,5 @@ signing {
 }
 
 tasks.withType(PublishToMavenRepository).configureEach {
-    it.dependsOn(tasks.withType(Sign))
+    dependsOn(tasks.withType(Sign))
 }

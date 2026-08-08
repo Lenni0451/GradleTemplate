@@ -1,22 +1,50 @@
+import org.gradle.api.provider.ValueSource
+import org.gradle.api.provider.ValueSourceParameters
+import org.gradle.process.ExecOperations
+import javax.inject.Inject
+import java.io.ByteArrayOutputStream
+
+abstract class GitHash implements ValueSource<String, ValueSourceParameters.None> {
+    private static final String FALLBACK = "dev"
+
+    @Inject
+    abstract ExecOperations getExecOperations()
+
+    @Override
+    String obtain() {
+        try {
+            def hashOut = new ByteArrayOutputStream()
+            def hashResult = execOperations.exec { spec ->
+                spec.commandLine("git", "rev-parse", "--short", "HEAD")
+                spec.standardOutput = hashOut
+                spec.ignoreExitValue = true
+            }
+            if (hashResult.exitValue != 0) return FALLBACK
+            def hash = hashOut.toString().trim()
+            if (!hash) return FALLBACK
+
+            def statusOut = new ByteArrayOutputStream()
+            execOperations.exec { spec ->
+                spec.commandLine("git", "status", "--porcelain")
+                spec.standardOutput = statusOut
+                spec.ignoreExitValue = true
+            }
+            def isDirty = !statusOut.toString().trim().isEmpty()
+
+            return hash + (isDirty ? "*" : "")
+        } catch (Exception ignored) {
+            return FALLBACK
+        }
+    }
+}
+
 plugins {
     id "net.raphimc.class-token-replacer"
 }
 
 sourceSets.configureEach {
     it.classTokenReplacer {
-        property("\${version}", project.version)
-        property("\${commit_hash}", latestCommitHash().get())
-    }
-}
-
-Provider<String> latestCommitHash() {
-    return providers.provider {
-        try {
-            return providers.exec {
-                commandLine = ["git", "rev-parse", "--short", "HEAD"]
-            }.standardOutput.getAsText().map(String::trim).get()
-        } catch (Exception e) {
-            return "unknown"
-        }
+        property("\${version}", project.provider { project.version.toString() })
+        property("\${commit_hash}", providers.of(GitHash) {})
     }
 }

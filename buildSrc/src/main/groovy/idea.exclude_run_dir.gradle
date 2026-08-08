@@ -4,8 +4,6 @@ plugins {
 
 idea {
     module {
-        ["run"].each {
-            excludeDirs << file("$it")
-        }
+        excludeDirs << file("run")
     }
 }
